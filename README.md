@@ -6,7 +6,7 @@ Proportions Chart
 [![Dependencies][dependencies-img]][dependencies-url]
 
 <p align="center">
-     <a href="https://vasturiano.github.io/proportions-chart/example/basic"><img width="80%" src="https://vasturiano.github.io/proportions-chart/example/preview.png"></a>
+     <a href="https://vasturiano.github.io/proportions-chart/example/basic"><img width="100%" src="https://vasturiano.github.io/proportions-chart/example/preview.png"></a>
 </p>
 
 An interactive one-dimensional proportions chart for representing categorical data.
