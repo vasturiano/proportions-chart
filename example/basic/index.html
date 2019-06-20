@@ -1,17 +1,30 @@
 <head>
   <style> body { margin: 0; } </style>
 
-  <script src="//unpkg.com/__my_module_name__"></script>
-  <!--<script src="../../dist/__my_module_name__.js"></script>-->
+  <script src="//unpkg.com/d3"></script>
+
+  <script src="//unpkg.com/proportions-chart"></script>
+  <!--<script src="../../dist/proportions-chart.js"></script>-->
 </head>
 
 <body>
-  <div id="main"></div>
+  <div id="chart"></div>
 
   <script>
+    const color = d3.scaleOrdinal(d3.schemePaired);
 
-    const Graph = __my_global_var_name__()
-      (document.getElementById('main'));
+    // Gen random data
+    const N_CAT = 8;
+    const MAX_VAL = 100;
+    const data = [...Array(N_CAT)].map((_, i) => ({
+      name: `Series ${i+1}`,
+      value: Math.round(Math.random() * MAX_VAL)
+    }));
+
+    ProportionsChart()
+      .data(data)
+      .color(d => color(d.name))
+      (document.getElementById('chart'));
 
   </script>
 </body>
