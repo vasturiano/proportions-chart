@@ -1,6 +1,6 @@
 {
   "name": "proportions-chart",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A one-dimensional proportional chart web component for visualizing categorical data",
   "license": "MIT",
   "unpkg": "dist/proportions-chart.min.js",
