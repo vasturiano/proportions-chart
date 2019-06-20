@@ -1,5 +1,7 @@
 <head>
-  <style> body { margin: 0; } </style>
+  <style>
+    body { margin: 50px 20px; }
+  </style>
 
   <script src="//unpkg.com/d3"></script>
 
@@ -14,7 +16,7 @@
     const color = d3.scaleOrdinal(d3.schemePaired);
 
     // Gen random data
-    const N_CAT = 8;
+    const N_CAT = 10;
     const MAX_VAL = 100;
     const data = [...Array(N_CAT)].map((_, i) => ({
       name: `Series ${i+1}`,
@@ -22,6 +24,8 @@
     }));
 
     ProportionsChart()
+      .width(window.innerWidth - 20 * 2)
+      .height(70)
       .data(data)
       .color(d => color(d.name))
       (document.getElementById('chart'));
