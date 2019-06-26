@@ -4,6 +4,7 @@
   "description": "A one-dimensional proportional chart web component for visualizing categorical data",
   "license": "MIT",
   "unpkg": "dist/proportions-chart.min.js",
+  "jsdelivr": "dist/proportions-chart.min.js",
   "main": "dist/proportions-chart.common.js",
   "module": "dist/proportions-chart.module.js",
   "repository": {
