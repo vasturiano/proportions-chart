@@ -30,7 +30,8 @@ export default Kapsule({
     color: { default: d => 'lightgrey' },
     showLabels: { default: true },
     tooltipContent: { triggerUpdate: false },
-    onClick: { triggerUpdate: false }
+    onClick: { triggerUpdate: false },
+    onHover: { triggerUpdate: false }
   },
 
   methods: {
@@ -78,6 +79,9 @@ export default Kapsule({
         .style('top', d3Event.pageY + 'px')
         .style('transform', `translate(-${d3Event.offsetX / state.width * 100}%, 21px)`); // adjust horizontal position to not exceed canvas boundaries
     });
+
+    // detect hover out events
+    state.svg.on('mouseover', () => state.onHover && state.onHover(null));
   },
 
   update: function(state) {
@@ -111,6 +115,9 @@ export default Kapsule({
         state.onClick && state.onClick(d.data);
       })
       .on('mouseover', d => {
+        d3Event.stopPropagation();
+        state.onHover && state.onHover(d.data);
+
         state.tooltip.style('display', 'inline');
         state.tooltip.html(`<div class="tooltip-title">
           ${nameOf(d.data)}

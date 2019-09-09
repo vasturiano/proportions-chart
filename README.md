@@ -45,6 +45,7 @@ myChart(<myDOMElement>)
 | <b>showLabels</b>([<i>boolean</i>]) | Getter/setter for whether to show labels in the segments. Regardless of this setting, labels too large to fit within a segment's boundaries are automatically hidden. | `true` |
 | <b>tooltipContent</b>([<i>string</i> or <i>fn</i>]) | Getter/setter for a series object tooltip content accessor. Use this to specify extra content in each of the segment's tooltips in addition to the series name that's included by default. | *&lt;value (%)*&gt; |
 | <b>onClick</b>([<i>fn</i>]) | Callback function for click events. Includes the series object as single argument. | |
+| <b>onHover</b>([<i>fn</i>]) | Callback function for mouse hover events. Includes the series object (or `null` if hovering outside the chart area) as single argument. | |
 
 
 [npm-img]: https://img.shields.io/npm/v/proportions-chart.svg
