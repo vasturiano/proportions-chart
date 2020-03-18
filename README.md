@@ -43,7 +43,7 @@ myChart(<myDOMElement>)
 | <b>color</b>([<i>string</i> or <i>fn</i>]) | Getter/setter for a series object color accessor, used to color the segments. | <i>grey</i> |
 | <b>sort</b>([<i>fn</i>]) | Getter/setter for the compare method used to sort the series. A value of `null` (*default*) maintains the existing order found in the input data structure. This method receives two arguments representing two series objects and expects a numeric return value (`-1`, `0` or `1`) indicating the order. For example, to order segments by size, use: `(a, b) => b.size - a.size`. | *&lt;existing order*&gt; |
 | <b>showLabels</b>([<i>boolean</i>]) | Getter/setter for whether to show labels in the segments. Regardless of this setting, labels too large to fit within a segment's boundaries are automatically hidden. | `true` |
-| <b>tooltipContent</b>([<i>string</i> or <i>fn</i>]) | Getter/setter for a series object tooltip content accessor. Use this to specify extra content in each of the segment's tooltips in addition to the series name that's included by default. | *&lt;value (%)*&gt; |
+| <b>tooltipContent</b>([<i>fn</i>]) | Getter/setter for a series object tooltip content accessor function. Use this to specify extra content in each of the segment's tooltips in addition to the series name that's included by default. | *&lt;value (%)*&gt; |
 | <b>onClick</b>([<i>fn</i>]) | Callback function for click events. Includes the series object as single argument. | |
 | <b>onHover</b>([<i>fn</i>]) | Callback function for mouse hover events. Includes the series object (or `null` if hovering outside the chart area) as single argument. | |
 
