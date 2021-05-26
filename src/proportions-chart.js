@@ -1,4 +1,4 @@
-import { select as d3Select, event as d3Event } from 'd3-selection';
+import { select as d3Select, pointer as d3Pointer } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { pie as d3Pie } from 'd3-shape';
 import { transition as d3Transition } from 'd3-transition';
@@ -65,19 +65,15 @@ export default Kapsule({
     state.canvas = state.svg.append('g');
 
     // tooltips
-    state.tooltip = d3Select('body')
-      .append('div').attr('class', 'proportions-tooltip');
+    state.tooltip = el.append('div')
+      .attr('class', 'proportions-tooltip');
 
-    // tooltip cleanup on unmount
-    domNode.addEventListener ('DOMNodeRemoved', function(e) {
-      if (e.target === this) { state.tooltip.remove(); }
-    });
-
-    state.canvas.on('mousemove', () => {
+    state.canvas.on('mousemove', ev => {
+      const mousePos = d3Pointer(ev);
       state.tooltip
-        .style('left', d3Event.pageX + 'px')
-        .style('top', d3Event.pageY + 'px')
-        .style('transform', `translate(-${d3Event.offsetX / state.width * 100}%, 21px)`); // adjust horizontal position to not exceed canvas boundaries
+        .style('left', mousePos[0] + 'px')
+        .style('top', mousePos[1] + 'px')
+        .style('transform', `translate(-${mousePos[0] / state.width * 100}%, 54px)`); // adjust horizontal position to not exceed canvas boundaries
     });
 
     // detect hover out events
@@ -110,12 +106,12 @@ export default Kapsule({
     const newSegment = segment.enter().append('g')
       .attr('class', 'segment')
       .style('opacity', 0)
-      .on('click', d => {
-        d3Event.stopPropagation();
+      .on('click', (ev, d) => {
+        ev.stopPropagation();
         state.onClick && state.onClick(d.data);
       })
-      .on('mouseover', d => {
-        d3Event.stopPropagation();
+      .on('mouseover', (ev, d) => {
+        ev.stopPropagation();
         state.onHover && state.onHover(d.data);
 
         state.tooltip.style('display', 'inline');
@@ -156,7 +152,9 @@ export default Kapsule({
     // Entering + Updating
     const allSegments = segment.merge(newSegment);
 
-    allSegments.transition(transition).style('opacity', 1);
+    allSegments
+      .style('cursor', state.onClick ? 'pointer' : null)
+      .transition(transition).style('opacity', 1);
 
     allSegments.select('rect')
       .transition(transition)

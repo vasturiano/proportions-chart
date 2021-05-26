@@ -37,28 +37,27 @@
   },
   "dependencies": {
     "accessor-fn": "^1.3.0",
-    "d3-scale": "^3.2.1",
-    "d3-selection": "^1.4.1",
-    "d3-shape": "^1.3.7",
-    "d3-transition": "^1.3.2",
-    "kapsule": "^1.13.3",
-    "tinycolor2": "^1.4.1"
+    "d3-scale": "^3.3.0",
+    "d3-selection": "^2.0.0",
+    "d3-shape": "^2.1.0",
+    "d3-transition": "^2.0.0",
+    "kapsule": "^1.13.4",
+    "tinycolor2": "^1.4.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
-    "@babel/preset-env": "^7.8.7",
-    "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-node-resolve": "^7.1.1",
-    "postcss-nested": "^4.2.1",
-    "postcss-simple-vars": "^5.0.2",
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^19.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "postcss": "^8.3.0",
     "rimraf": "^3.0.2",
-    "rollup": "^2.1.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-dts": "^1.3.0",
-    "rollup-plugin-postcss": "^2.5.0",
-    "rollup-plugin-terser": "^5.3.0",
-    "typescript": "^3.8.3"
+    "rollup": "^2.50.1",
+    "rollup-plugin-dts": "^3.0.2",
+    "rollup-plugin-postcss": "^4.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.3.2"
   }
 }
