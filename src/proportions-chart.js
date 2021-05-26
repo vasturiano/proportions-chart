@@ -68,12 +68,12 @@ export default Kapsule({
     state.tooltip = el.append('div')
       .attr('class', 'proportions-tooltip');
 
-    state.canvas.on('mousemove', ev => {
+    el.on('mousemove', ev => {
       const mousePos = d3Pointer(ev);
       state.tooltip
         .style('left', mousePos[0] + 'px')
         .style('top', mousePos[1] + 'px')
-        .style('transform', `translate(-${mousePos[0] / state.width * 100}%, 54px)`); // adjust horizontal position to not exceed canvas boundaries
+        .style('transform', `translate(-${mousePos[0] / state.width * 100}%, 22px)`); // adjust horizontal position to not exceed canvas boundaries
     });
 
     // detect hover out events
