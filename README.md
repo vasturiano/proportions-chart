@@ -3,7 +3,7 @@ Proportions Chart
 
 [![NPM package][npm-img]][npm-url]
 [![Build Size][build-size-img]][build-size-url]
-[![Dependencies][dependencies-img]][dependencies-url]
+[![NPM Downloads][npm-downloads-img]][npm-downloads-url]
 
 <p align="center">
      <a href="https://vasturiano.github.io/proportions-chart/example/basic"><img width="100%" src="https://vasturiano.github.io/proportions-chart/example/preview.png"></a>
@@ -13,19 +13,19 @@ An interactive one-dimensional proportions chart for representing categorical da
 
 ## Quick start
 
-```
+```js
 import ProportionsChart from 'proportions-chart';
 ```
 or
-```
+```js
 const ProportionsChart = require('proportions-chart');
 ```
 or even
-```
+```html
 <script src="//unpkg.com/proportions-chart"></script>
 ```
 then
-```
+```js
 const myChart = ProportionsChart();
 myChart(<myDOMElement>)
     .data(<myData>);
@@ -48,9 +48,9 @@ myChart(<myDOMElement>)
 | <b>onHover</b>([<i>fn</i>]) | Callback function for mouse hover events. Includes the series object (or `null` if hovering outside the chart area) as single argument. | |
 
 
-[npm-img]: https://img.shields.io/npm/v/proportions-chart.svg
+[npm-img]: https://img.shields.io/npm/v/proportions-chart
 [npm-url]: https://npmjs.org/package/proportions-chart
-[build-size-img]: https://img.shields.io/bundlephobia/minzip/proportions-chart.svg
+[build-size-img]: https://img.shields.io/bundlephobia/minzip/proportions-chart
 [build-size-url]: https://bundlephobia.com/result?p=proportions-chart
-[dependencies-img]: https://img.shields.io/david/vasturiano/proportions-chart.svg
-[dependencies-url]: https://david-dm.org/vasturiano/proportions-chart
+[npm-downloads-img]: https://img.shields.io/npm/dt/proportions-chart
+[npm-downloads-url]: https://www.npmtrends.com/proportions-chart
