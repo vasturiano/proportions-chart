@@ -16,11 +16,7 @@ An interactive one-dimensional proportions chart for representing categorical da
 ```js
 import ProportionsChart from 'proportions-chart';
 ```
-or
-```js
-const ProportionsChart = require('proportions-chart');
-```
-or even
+or using a *script* tag
 ```html
 <script src="//unpkg.com/proportions-chart"></script>
 ```
