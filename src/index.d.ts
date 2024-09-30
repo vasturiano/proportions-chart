@@ -42,8 +42,9 @@ export interface ProportionsChartGenericInstance<ChainableInstance> {
   tooltipContent(): TooltipFn;
   tooltipContent(fn: TooltipFn): ChainableInstance;
 
-  onClick(cb: (series: SeriesD) => void): ChainableInstance;
-  onHover(cb: (series: SeriesD | null) => void): ChainableInstance;
+  onClick(cb: (series: SeriesD, event: MouseEvent) => void): ChainableInstance;
+  onRightClick(cb: (series: SeriesD, event: MouseEvent) => void): ChainableInstance;
+  onHover(cb: (series: SeriesD | null, event: MouseEvent) => void): ChainableInstance;
 }
 
 export type ProportionsChartInstance = ProportionsChartGenericInstance<ProportionsChartInstance>;

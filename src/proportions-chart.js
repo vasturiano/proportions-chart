@@ -31,6 +31,7 @@ export default Kapsule({
     showLabels: { default: true },
     tooltipContent: { triggerUpdate: false },
     onClick: { triggerUpdate: false },
+    onRightClick: { triggerUpdate: false },
     onHover: { triggerUpdate: false }
   },
 
@@ -77,7 +78,7 @@ export default Kapsule({
     });
 
     // detect hover out events
-    state.svg.on('mouseover', () => state.onHover && state.onHover(null));
+    state.svg.on('mouseover', ev => state.onHover && state.onHover(null, ev));
   },
 
   update: function(state) {
@@ -108,11 +109,18 @@ export default Kapsule({
       .style('opacity', 0)
       .on('click', (ev, d) => {
         ev.stopPropagation();
-        state.onClick && state.onClick(d.data);
+        state.onClick && state.onClick(d.data, ev);
+      })
+      .on('contextmenu', (ev, d) => {
+        ev.stopPropagation();
+        if (state.onRightClick) {
+          state.onRightClick(d.data, ev);
+          ev.preventDefault();
+        }
       })
       .on('mouseover', (ev, d) => {
         ev.stopPropagation();
-        state.onHover && state.onHover(d.data);
+        state.onHover && state.onHover(d.data, ev);
 
         state.tooltip.style('display', 'inline');
         state.tooltip.html(`<div class="tooltip-title">

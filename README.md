@@ -40,8 +40,9 @@ myChart(<myDOMElement>)
 | <b>sort</b>([<i>fn</i>]) | Getter/setter for the compare method used to sort the series. A value of `null` (*default*) maintains the existing order found in the input data structure. This method receives two arguments representing two series objects and expects a numeric return value (`-1`, `0` or `1`) indicating the order. For example, to order segments by size, use: `(a, b) => b.size - a.size`. | *&lt;existing order*&gt; |
 | <b>showLabels</b>([<i>boolean</i>]) | Getter/setter for whether to show labels in the segments. Regardless of this setting, labels too large to fit within a segment's boundaries are automatically hidden. | `true` |
 | <b>tooltipContent</b>([<i>fn</i>]) | Getter/setter for a series object tooltip content accessor function. Use this to specify extra content in each of the segment's tooltips in addition to the series name that's included by default. | *&lt;value (%)*&gt; |
-| <b>onClick</b>([<i>fn</i>]) | Callback function for click events. Includes the series object as single argument. | |
-| <b>onHover</b>([<i>fn</i>]) | Callback function for mouse hover events. Includes the series object (or `null` if hovering outside the chart area) as single argument. | |
+| <b>onHover</b>([<i>fn</i>]) | Callback function for mouse hover events. The series object (or `null` if hovering outside the chart area) and the event object are included as arguments `onHover(series, event)`. | |
+| <b>onClick</b>([<i>fn</i>]) | Callback function for click events. The series object and the event object are included as arguments `onClick(series, event)`. | |
+| <b>onRightClick</b>([<i>fn</i>]) | Callback function for right-click events. The series object and the event object are included as arguments `onRightClick(series, event)`. A falsy value (default) will fallback to the default browser behaviour, which is to open the context menu. | |
 
 
 [npm-img]: https://img.shields.io/npm/v/proportions-chart
