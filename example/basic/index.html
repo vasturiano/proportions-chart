@@ -23,12 +23,11 @@
       value: Math.round(Math.random() * MAX_VAL)
     }));
 
-    ProportionsChart()
+    new ProportionsChart(document.getElementById('chart'))
       .width(window.innerWidth - 20 * 2)
       .height(70)
       .data(data)
-      .color(d => color(d.name))
-      (document.getElementById('chart'));
+      .color(d => color(d.name));
 
   </script>
 </body>

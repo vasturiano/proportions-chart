@@ -19,36 +19,32 @@ export interface DataNode {
 type SeriesCompareFn = (a: SeriesD, b: SeriesD) => number;
 type TooltipFn = (series: SeriesD, dataNode: DataNode) => string;
 
-export interface ProportionsChartGenericInstance<ChainableInstance> {
-  (element: HTMLElement): ChainableInstance;
+declare class ProportionsChart {
+  constructor(element: HTMLElement, configOptions?: ConfigOptions);
 
   width(): number;
-  width(width: number): ChainableInstance;
+  width(width: number): ProportionsChart;
   height(): number;
-  height(height: number): ChainableInstance;
+  height(height: number): ProportionsChart;
 
   data(): SeriesD[];
-  data(data: SeriesD[]): ChainableInstance;
+  data(data: SeriesD[]): ProportionsChart;
   label(): SeriesAccessor<string>;
-  label(textAccessor: SeriesAccessor<string>): ChainableInstance;
+  label(textAccessor: SeriesAccessor<string>): ProportionsChart;
   size(): SeriesAccessor<number>;
-  size(textAccessor: SeriesAccessor<number>): ChainableInstance;
+  size(textAccessor: SeriesAccessor<number>): ProportionsChart;
   color(): SeriesAccessor<string>;
-  color(textAccessor: SeriesAccessor<string>): ChainableInstance;
+  color(textAccessor: SeriesAccessor<string>): ProportionsChart;
   sort(): SeriesCompareFn | null;
-  sort(fn: SeriesCompareFn): ChainableInstance;
+  sort(fn: SeriesCompareFn): ProportionsChart;
   showLabels(): boolean;
-  showLabels(show: boolean): ChainableInstance;
+  showLabels(show: boolean): ProportionsChart;
   tooltipContent(): TooltipFn;
-  tooltipContent(fn: TooltipFn): ChainableInstance;
+  tooltipContent(fn: TooltipFn): ProportionsChart;
 
-  onClick(cb: (series: SeriesD, event: MouseEvent) => void): ChainableInstance;
-  onRightClick(cb: (series: SeriesD, event: MouseEvent) => void): ChainableInstance;
-  onHover(cb: (series: SeriesD | null, event: MouseEvent) => void): ChainableInstance;
+  onClick(cb: (series: SeriesD, event: MouseEvent) => void): ProportionsChart;
+  onRightClick(cb: (series: SeriesD, event: MouseEvent) => void): ProportionsChart;
+  onHover(cb: (series: SeriesD | null, event: MouseEvent) => void): ProportionsChart;
 }
-
-export type ProportionsChartInstance = ProportionsChartGenericInstance<ProportionsChartInstance>;
-
-declare function ProportionsChart(configOptions?: ConfigOptions): ProportionsChartInstance;
 
 export default ProportionsChart;
