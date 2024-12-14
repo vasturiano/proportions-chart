@@ -3,8 +3,6 @@
     body { margin: 50px 20px; }
   </style>
 
-  <script src="//unpkg.com/d3@6"></script>
-
   <script src="//unpkg.com/proportions-chart"></script>
 <!--  <script src="../../dist/proportions-chart.js"></script>-->
 </head>
@@ -12,8 +10,11 @@
 <body>
   <div id="chart"></div>
 
-  <script>
-    const color = d3.scaleOrdinal(d3.schemePaired);
+  <script type="module">
+    import { scaleOrdinal } from 'https://esm.sh/d3-scale';
+    import { schemePaired } from 'https://esm.sh/d3-scale-chromatic';
+
+    const color = scaleOrdinal(schemePaired);
 
     // Gen random data
     const N_CAT = 10;
