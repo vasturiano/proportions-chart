@@ -1446,9 +1446,9 @@ fdir@^6.2.0:
   integrity sha512-KnhMXsKSPZlAhp7+IjUkRZKPb4fUyccpDrdFXbi4QL1qkmFh9kVY09Yox+n4MaOb3lHZ1Tv829C3oaaXoMYPDQ==
 
 float-tooltip@1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/float-tooltip/-/float-tooltip-1.4.1.tgz#ce4ef775eaaebc401a2ffe1a0857633f0fcee01a"
-  integrity sha512-FNsrrbK4thwmch04WqSuH66wclg2IVqHgWsyqHckVtQxyb8aGD4/TFhwi6qWTjewV0rnGOvxNJZCtyDLsxBzdg==
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/float-tooltip/-/float-tooltip-1.4.2.tgz#a128f389aa45a6149ed2f27aae40151653e39479"
+  integrity sha512-sKWm5Q9YKBgpli8c5VEADvBYYH2Jqy+RH/m7FUbDMPUuoXYMRBVYppp8+dDv962XiE2kCKt7TIOV3lUQ+nK0Pw==
   dependencies:
     d3-selection "2 - 3"
     kapsule "^1.16"
