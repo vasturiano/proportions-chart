@@ -1,4 +1,4 @@
-import { select as d3Select, pointer as d3Pointer } from 'd3-selection';
+import { select as d3Select } from 'd3-selection';
 import { scaleLinear as d3ScaleLinear } from 'd3-scale';
 import { pie as d3Pie } from 'd3-shape';
 import { transition as d3Transition } from 'd3-transition';
