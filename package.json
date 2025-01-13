@@ -1,6 +1,6 @@
 {
   "name": "proportions-chart",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "A one-dimensional proportional chart web component for visualizing categorical data",
   "license": "MIT",
   "type": "module",
