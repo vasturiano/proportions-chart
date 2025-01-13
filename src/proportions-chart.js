@@ -5,6 +5,7 @@ import { transition as d3Transition } from 'd3-transition';
 import Kapsule from 'kapsule';
 import tinycolor from 'tinycolor2';
 import accessorFn from 'accessor-fn';
+import Tooltip from 'float-tooltip';
 
 const TRANSITION_DURATION = 800;
 const HOVER_REL_MARGIN = 0.18; // How much (relative) margin to save for hover interaction enlarging
@@ -66,16 +67,7 @@ export default Kapsule({
     state.canvas = state.svg.append('g');
 
     // tooltips
-    state.tooltip = el.append('div')
-      .attr('class', 'proportions-tooltip');
-
-    el.on('mousemove', ev => {
-      const mousePos = d3Pointer(ev);
-      state.tooltip
-        .style('left', mousePos[0] + 'px')
-        .style('top', mousePos[1] + 'px')
-        .style('transform', `translate(-${mousePos[0] / state.width * 100}%, 22px)`); // adjust horizontal position to not exceed canvas boundaries
-    });
+    state.tooltip = new Tooltip(el);
 
     // detect hover out events
     state.svg.on('mouseover', ev => state.onHover && state.onHover(null, ev));
@@ -122,14 +114,14 @@ export default Kapsule({
         ev.stopPropagation();
         state.onHover && state.onHover(d.data, ev);
 
-        state.tooltip.style('display', 'inline');
-        state.tooltip.html(`<div class="tooltip-title">
-          ${nameOf(d.data)}
-        </div>${state.tooltipContent ? state.tooltipContent(d.data, d) : `<div>
-          <b>${d.value}</b> (<i>${roundPercentage(getPerc(d), 2)}%</i>)
-        </div`}`);
+        state.tooltip.content(`
+          <div class="tooltip-title">${nameOf(d.data)}</div>
+          ${state.tooltipContent ? state.tooltipContent(d.data, d) : `<div>
+            <b>${d.value}</b> (<i>${roundPercentage(getPerc(d), 2)}%</i>)
+          </div`}
+        `);
       })
-      .on('mouseout', () => { state.tooltip.style('display', 'none'); });
+      .on('mouseout', () => { state.tooltip.content(null); });
 
     newSegment.append('rect')
       .attr('id', d => `segment-${d.id}`)
